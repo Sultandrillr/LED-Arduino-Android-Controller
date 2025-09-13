@@ -1,5 +1,3 @@
-//Currently I am on chat GPT trying to solve the wifi connectivity issue. Do that before all of the java app shit. you done spent too long on this and dashed too much money.
-
 #include <IRremote.hpp>
 #include <SPI.h>
 #include "WifiControl.h"//no longer needed, found a library
