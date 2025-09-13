@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/buttstuff33"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/blue_down"
+        android:layout_width="128dp"
+        android:layout_height="72dp"
+        android:text="Blue Down"
+        android:onClick="hi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.989"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/red_up"
+        app:layout_constraintVertical_bias="0.056" />
+
+    <Button
+        android:id="@+id/blue_up"
+        android:layout_width="128dp"
+        android:layout_height="72dp"
+        android:text="Blue Up"
+        android:onClick="hi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.989"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/red_abs"
+        app:layout_constraintVertical_bias="0.062" />
+
+    <Button
+        android:id="@+id/blue_abs"
+        android:layout_width="128dp"
+        android:layout_height="72dp"
+        android:text="Blue"
+        android:onClick="hi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.989"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <Button
+        android:id="@+id/green_up"
+        android:layout_width="128dp"
+        android:layout_height="72dp"
+        android:text="Green Up"
+        android:onClick="hi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/red_abs"
+        app:layout_constraintVertical_bias="0.062" />
+
+    <Button
+        android:id="@+id/green_abs"
+        android:layout_width="128dp"
+        android:layout_height="72dp"
+        android:text="Green"
+        android:onClick="hi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <Button
+        android:id="@+id/green_down"
+        android:layout_width="128dp"
+        android:layout_height="72dp"
+        android:text="Green Down"
+        android:onClick="hi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/red_up"
+        app:layout_constraintVertical_bias="0.056" />
+
+    <Button
+        android:id="@+id/red_abs"
+        android:layout_width="128dp"
+        android:layout_height="72dp"
+        android:text="Red"
+        android:onClick="hi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <Button
+        android:id="@+id/red_up"
+        android:layout_width="128dp"
+        android:layout_height="72dp"
+        android:text="Red Up"
+        android:onClick="hi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/red_abs"
+        app:layout_constraintVertical_bias="0.062" />
+
+    <Button
+        android:id="@+id/red_down"
+        android:layout_width="128dp"
+        android:layout_height="72dp"
+        android:text="Red Down"
+        android:onClick="hi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/red_up"
+        app:layout_constraintVertical_bias="0.056" />
+
+    <Button
+        android:id="@+id/all_down"
+        android:layout_width="128dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="12dp"
+        android:text="All Up"
+        android:onClick="hi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.215"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/red_down"
+        app:layout_constraintVertical_bias="0.158" />
+
+    <Button
+        android:id="@+id/all_up"
+        android:layout_width="128dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="12dp"
+        android:text="All Down"
+        android:onClick="hi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.734"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/red_down"
+        app:layout_constraintVertical_bias="0.158" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RED"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="50dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GREEN"
+        tools:layout_editor_absoluteX="189dp"
+        tools:layout_editor_absoluteY="50dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BLUE"
+        tools:layout_editor_absoluteX="317dp"
+        tools:layout_editor_absoluteY="50dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
