@@ -1,8 +1,9 @@
 #include <IRremote.hpp>
 #include <SPI.h>
-#include "WifiControl.h"//no longer needed, found a library
-#include <r4-wifi-manager/constants.hpp>
-#include <r4-wifi-manager/r4-wifi-manager.hpp>
+#include "WifiControl.h"//no longer needed, found a library...... bun the library I am better
+//#include <r4-wifi-manager/constants.hpp>
+//#include <r4-wifi-manager/r4-wifi-manager.hpp>
+#include "LedControl.h"
 
 //String createHtmlPage;
 
@@ -10,10 +11,6 @@ IRrecv IR(11);
 const int redPin = 6;
 const int greenPin = 10;
 const int bluePin = 5;
-
-int redBright = 225;
-int greenBright = 225;
-int blueBright = 225;
 
 int fadeDelay = 10;
 
@@ -43,15 +40,15 @@ void setup() {
 
 void update_LED()
   {
-    analogWrite(redPin,redBright);
-    analogWrite(greenPin,greenBright);
-    analogWrite(bluePin,blueBright);
+    analogWrite(redPin,LedControl::redBright);
+    analogWrite(greenPin,LedControl::greenBright);
+    analogWrite(bluePin,LedControl::blueBright);
   }
 
 void lights_off(){
-  int redBright = 0;
-  int greenBright = 0;
-  int blueBright = 0;
+  LedControl::redBright = 0;
+  LedControl::greenBright = 0;
+  LedControl::blueBright = 0;
 }
 void check_LED(){
   if (IR.decode() && IR.decodedIRData.decodedRawData, HEX != 0){
@@ -63,7 +60,7 @@ void check_LED(){
 
 void fade_LED(){
   //dark to red
-  for (redBright; redBright < 255; redBright++){
+  for (LedControl::redBright; LedControl::redBright < 255; LedControl::redBright++){
     if (irCode == -200544512){
       check_LED();
       //delay(fadeDelay/2);
@@ -73,7 +70,7 @@ void fade_LED(){
   }
 
   //red to yellow
-  for (greenBright; greenBright < 255; greenBright++){
+  for (LedControl::greenBright; LedControl::greenBright < 255; LedControl::greenBright++){
     if (irCode == -200544512){
       check_LED();
       delay(fadeDelay/2);
@@ -83,7 +80,7 @@ void fade_LED(){
   }
 
   //yellow to green
-  for (redBright; redBright > 0; redBright--){
+  for (LedControl::redBright; LedControl::redBright > 0; LedControl::redBright--){
     if (irCode == -200544512){
       check_LED();
       delay(fadeDelay/2);
@@ -93,7 +90,7 @@ void fade_LED(){
   }
 
   //green to teal
-  for (blueBright; blueBright < 255; blueBright++){
+  for (LedControl::blueBright; LedControl::blueBright < 255; LedControl::blueBright++){
     if (irCode == -200544512){
       check_LED();
       delay(fadeDelay/2);
@@ -102,7 +99,7 @@ void fade_LED(){
     }
   }
   //teal to blue
-  for (greenBright; greenBright > 0; greenBright--){
+  for (LedControl::greenBright; LedControl::greenBright > 0; LedControl::greenBright--){
     if (irCode == -200544512){
       check_LED();
       delay(fadeDelay/2);
@@ -112,7 +109,7 @@ void fade_LED(){
   }
 
   //blue to purple
-  for (redBright; redBright < 255; redBright++){
+  for (LedControl::redBright; LedControl::redBright < 255; LedControl::redBright++){
     if (irCode == -200544512){
       check_LED();
       delay(fadeDelay/2);
@@ -122,7 +119,7 @@ void fade_LED(){
   }
 
   //purple to red
-  for (blueBright; blueBright > 0; blueBright--){
+  for (LedControl::blueBright; LedControl::blueBright > 0; LedControl::blueBright--){
     if (irCode == -200544512){
       check_LED();
       delay(fadeDelay/2);
@@ -143,103 +140,103 @@ if (IR.decode()){
   switch (irCode) {
   //RED
   case -83562752:
-    redBright = 255;
-    greenBright = 0;
-    blueBright = 0;
+    LedControl::redBright = 255;
+    LedControl::greenBright = 0;
+    LedControl::blueBright = 0;
     update_LED();
     irCode = 0;
     break;
   case -100274432:
     //GREEN
-    redBright = 0;
-    greenBright = 255;
-    blueBright = 0;
+    LedControl::redBright = 0;
+    LedControl::greenBright = 255;
+    LedControl::blueBright = 0;
     update_LED();
     irCode = 0;
     break;
   
   case -116986112:
     //BLUE
-    redBright = 0;
-    greenBright = 0;
-    blueBright = 255;
+    LedControl::redBright = 0;
+    LedControl::greenBright = 0;
+    LedControl::blueBright = 255;
     update_LED();
     irCode = 0;
     break;
   
   case -150409472:
     //red up 20
-    redBright += 20;
+    LedControl::redBright += 20;
     update_LED();
     irCode = 0;
     break;
 
   case -217256192:
     //red down 20
-    redBright -= 20;
+    LedControl::redBright -= 20;
     update_LED();
     irCode = 0;
     break;
 
   case -167121152:
     //green up 20
-    greenBright += 20;
+    LedControl::greenBright += 20;
     update_LED();
     irCode = 0;
     break;
 
   case -233967872:
     //green down 20
-    greenBright -= 20;
+    LedControl::greenBright -= 20;
     update_LED();
     irCode = 0;
     break;
 
   case -183832832:
     //blue up 20
-    blueBright += 20;
+    LedControl::blueBright += 20;
     update_LED();
     irCode = 0;
     break;
   case -250679552:
     //blue down 20
-    blueBright -= 20;
+    LedControl::blueBright -= 20;
     update_LED();
     irCode = 0;
     break;
   
   case -50139392:
     //Lights Off
-    redBright = 0;
-    greenBright = 0;
-    blueBright = 0;
+    LedControl::redBright = 0;
+    LedControl::greenBright = 0;
+    LedControl::blueBright = 0;
     update_LED();
     irCode = 0;
     break;
 
   case -33427712:
     //All Down
-    redBright -= 20;
-    greenBright -= 20;
-    blueBright -= 20;
+    LedControl::redBright -= 20;
+    LedControl::greenBright -= 20;
+    LedControl::blueBright -= 20;
     update_LED();
     irCode = 0;
     break;
 
   case -16716032:
     //All Up
-    redBright += 20;
-    greenBright += 20;
-    blueBright += 20;
+    LedControl::redBright += 20;
+    LedControl::greenBright += 20;
+    LedControl::blueBright += 20;
     update_LED();
     irCode = 0;
     break;
 
   case -133697792:
     //White.........
-    redBright = 255;
-    greenBright = 255;
-    blueBright = 255;
+    LedControl::redBright = 255;
+    LedControl::greenBright = 255;
+    LedControl::blueBright = 255;
     update_LED();
     irCode = 0;
     break;
@@ -258,7 +255,7 @@ if (IR.decode()){
 
   case 6:
     //blue down 10
-    blueBright -= 10;
+    LedControl::blueBright -= 10;
     update_LED();
     irCode = 0;
     break;
