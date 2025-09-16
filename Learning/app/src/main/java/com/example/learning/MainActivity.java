@@ -1,23 +1,51 @@
 package com.example.learning;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-import android.util.Log;
-import android.widget.Button;
-import android.widget.TextView;
 import java.util.Calendar;
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
     //private Button;
     //private TextView;
+
+    //this is the fucking database. DO NOT REMOVE THIS THINKING ITS A 2ND CLASS
+    @Entity
+    public class Arduino_Info{
+        @PrimaryKey
+        public int Arduino_ID;
+        @ColumnInfo(name = "IP Address")
+        public String IP_Address;
+
+        @ColumnInfo(name = "MAC Address")
+        public String MAC_Address;
+
+        @ColumnInfo(name = "Device Name")
+        public String Device_Name;
+
+        @ColumnInfo(name = "Port Number")
+        public short Port;
+
+        @ColumnInfo(name = "UUID")
+        public String UUID;
+
+        //When I implement HTTPS then I am going to uncomment this line below
+        //@ColumnInfo(name = "Authentication Token")
+        //public String Auth_Token;
+
+    }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +74,32 @@ public class MainActivity extends AppCompatActivity {
             return LightLevel;
         }
     }
-    LED red = new LED();
-    LED green = new LED();
-    LED blue = new LED();
-    public void addDevice(){
-        //open the database connection
+
+    public class Arduino_Controller{
+        public String ID;
+        public String Name;
+        public String Name_On_Network;
+        public String IP;
+        public String MAC;
+        public boolean is_Connected;
+
+        public short red;
+        public short green;
+        public short blue;
+
+        //This calls when a new controller object is created and sets all the values
+        public Arduino_Controller(String ID, String Name, String Name_On_Network, String IP, String MAC, boolean is_Connected, short red, short green, short blue){
+            this.ID = ID;
+            this.Name = Name;
+            this.Name_On_Network = Name_On_Network;
+            this.IP = IP;
+            this.MAC = MAC;
+            this.is_Connected = is_Connected;
+            this.red = red;
+            this.green = green;
+            this.blue = blue;
+        }
+        //apparently I need callbacks for error handling but im too tired so I will do that tomorrow. This is where you have stopped so far
     }
 
     public void tryDevice1(){

@@ -1,4 +1,5 @@
 //Function definitions for controlling the wifi connnectivity
+//I would have done this over bluetooth but my pc has no wifi to use and my android is broken. I just deeped it. Will i even be able to use wifi? My pc is on wired connection. We will see
 
 #include <Arduino.h>
 #include "WifiControl.h"
@@ -15,7 +16,7 @@
 char ssid[MAX_CREDENTIAL_SIZE + 1];
 char password[MAX_CREDENTIAL_SIZE + 1];
 
-WiFiServer server(80);//this is HTTP. Unsecure but OK for testing. Before deployment I will need more libraries and extra stuff to make it in HTTPS. It will be better to make it more secure at a later date using HTTPS after i am finished the rest of ts
+WiFiServer server(80);//this is HTTP. Unsecure but OK for testing. Before deployment I will need more libraries and extra stuff to make it in HTTPS. It will be better to make it more secure at a later date using HTTPS after i am finished the rest of ts btw port is 443
 
 String htmlPage;
 bool isWifiConnected = false;
@@ -217,7 +218,7 @@ int MyWifi::extractInt(String &request, const String &key){
   String value = extract_input(request, key);
   return value.toInt();
 }
-
+// Add UUID. I didnt even know ts was important. If i forget why, it just allows it to have a more consistent connection and some safety stuff to allow for
 
 
 
